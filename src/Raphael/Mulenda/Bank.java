@@ -15,6 +15,21 @@ public class Bank {
         this.branches = new ArrayList<Branch>();
     }
 
+    public boolean addBranch(String branchName){
+        Branch checkedBranch = findBranch(branchName);
+        if (checkedBranch == null){
+            Branch newBranch = new Branch(branchName);
+            this.branches.add(newBranch);
+            System.out.println(branchName + " has been haded to database");
+            return true;
+
+        }
+        System.out.println(branchName + " Exist database");
+        return false;
+
+    }
+
+
 
     private Branch findBranch(String branchName){
         for (Branch branches : this.branches){
