@@ -46,10 +46,16 @@ public class Branch {
     }
 
     private  Customer findCustomer(String customerName){
-        Iterator<Customer> lc = this.customers.iterator();
+      /*  Iterator<Customer> lc = this.customers.iterator();
         while(lc.hasNext()){
             if (lc.next().getName().equals(customerName)){
                 return lc.next();
+            }
+
+        }*/
+        for (Customer customer : this.customers) {
+            if (customer.getName().equals(customerName)) {
+                return customer;
             }
 
         }
