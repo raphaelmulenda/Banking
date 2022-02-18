@@ -35,7 +35,7 @@ public class Branch {
 
     }
     public boolean addCustomerTransaction(String name, double newTransaction){
-        if (findCustomer(name)!=null){
+        if (findCustomer(name)!= null){
             Customer theCustomer = findCustomer(name);
             assert theCustomer != null;
             theCustomer.addTransaction(newTransaction);
@@ -46,13 +46,7 @@ public class Branch {
     }
 
     private  Customer findCustomer(String customerName){
-      /*  Iterator<Customer> lc = this.customers.iterator();
-        while(lc.hasNext()){
-            if (lc.next().getName().equals(customerName)){
-                return lc.next();
-            }
 
-        }*/
         for (Customer customer : this.customers) {
             if (customer.getName().equals(customerName)) {
                 return customer;

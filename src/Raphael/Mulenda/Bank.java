@@ -20,11 +20,11 @@ public class Bank {
         if (checkedBranch == null) {
             Branch newBranch = new Branch(branchName);
             this.branches.add(newBranch);
-            System.out.println(branchName + " has been haded to database");
+            //System.out.println(branchName + " has been haded to database");
             return true;
 
         }
-        System.out.println(branchName + " Exist in database");
+        //System.out.println(branchName + " Exist in database");
         return false;
 
     }
@@ -35,8 +35,9 @@ public class Bank {
             return branch.newCustomer(customerName, initCash);
 
         }
-        System.out.println(branchName + " Does not exist in database");
+        else {System.out.println("Branch does not exist in database");
         return false;
+        }
     }
 
     public boolean addCustomerTransaction(String branchName, String customerName, double newCash) {
@@ -47,19 +48,21 @@ public class Bank {
                 return true;
             }
         }
-        System.out.println(branchName + " Does not exist in database");
+        System.out.println("Branch does not exist in database");
         return false;
     }
 
 
     private Branch findBranch(String branchName) {
-        for (Branch branches : this.branches) {
-            if (branches.getName().equals(branchName)) {
-                return branches;
+        for (Branch checkedBranch : this.branches) {
+            if (checkedBranch.getName().equals(branchName)) {
+                return checkedBranch;
             }
         }
+
         return null;
     }
+
 
     public boolean listCustomer(String branchName, boolean showTransaction) {
         Branch branch = findBranch(branchName);
